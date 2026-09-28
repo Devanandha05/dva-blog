@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================
+       HOW TO USE THIS TEMPLATE FOR A NEW AFFILIATE
+       / SHOPPING ARTICLE:
+
+       2. Update everything marked with ">>> EDIT" below:
+          - <title>, <meta description>, canonical URL
+          - Open Graph / Twitter Card tags, JSON-LD block
+          - The category kicker, <h1>, and intro description
+          - The main hero image
+          - The table of contents (must match your product cards)
+          - Every <div class="product-card"> block — including
+            the affiliate link href and the required disclosure
+            microcopy under each button
+          - The renderRelatedArticles() call at the bottom
+
+       3. Add an object for this article to js/articles-data.js,
+          same as any other article, but set:
+              isAffiliate: true
+          so it's easy to visually tell affiliate posts apart
+          from inspiration posts when scanning that file later.
+
+       4. IMPORTANT — every product card's "Shop now" button
+          MUST keep rel="sponsored noopener" and target="_blank".
+          "sponsored" tells search engines this is a paid/
+          affiliate link (Google's own required practice).
+          Never remove it to "clean up" the HTML.
+
+       5. The disclosure banner near the top of this page is
+          REQUIRED on every affiliate article — do not delete
+          it. Wording can be adjusted, but the fact that you
+          earn a commission must stay clear and visible before
+          any shopping link.
+       ============================================ -->
+
+  <!-- >>> EDIT: page title + meta description -->
+  <title>Shop Affordable Home Decor We Love — DVA</title>
+  <meta name="description" content="Our favorite affordable home decor items to shop right now, handpicked for every kind of celebration." />
+
+  <link rel="canonical" href="https://dva-blog.vercel.app//articles/affordable-room-decor.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="DVA" />
+  <meta property="og:title" content="Shop Affordable Room Decor We Love — DVA" />
+  <meta property="og:description" content="Our favorite affordable room decor items to shop right now, handpicked for every kind of celebration." />
+  <meta property="og:image" content="../images/REPLACE-ME.jpg" />
+  <meta property="og:url" content="https://dva-blog.vercel.app//articles/affordable-room-decor.html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shop Affordable Room Decor We Love — DVA" />
+  <meta name="twitter:description" content="Our favorite affordable room decor items to shop right now, handpicked for every kind of celebration." />
+  <meta name="twitter:image" content="../images/REPLACE-ME.jpg" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Shop Affordable Room Decor We Love",
+    "description": "Our favorite affordable room decor items to shop right now, handpicked for every kind of celebration.",
+    "image": "https://dva-blog.vercel.app//images/REPLACE-ME.jpg",
+    "url": "https://dva-blog.vercel.app//articles/affordable-room-decor.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">DVA</a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-page shop-page">
+
+    <!-- ============ INTRO ============ -->
+    <section class="shop-hero">
+      <p class="kicker">Affordable Home Decor</p>
+      <h1>Shop Affordable Home Decor We Love</h1>
+      <p class="shop-hero-text">
+        Small, pretty, budget-friendly pieces that make a room feel
+        finished. Handpicked, and all under $70.
+      </p>
+    </section>
+
+    <!-- ============ REQUIRED DISCLOSURE (do not delete) ============ -->
+    <div class="shop-disclosure">
+      <p>
+        This article contains affiliate links. If you purchase something
+        through one of these links, DVA may earn a small commission at
+        no extra cost to you. We only feature products we genuinely like.
+      </p>
+    </div>
+
+    <!-- ============ HERO IMAGE ============ -->
+    <div class="shop-cover">
+      <div class="pinnable" data-description="Affordable Home Decor We Love">
+        <img src="../images/vase-decor.jpg" alt="Affordable room decor items" />
+      </div>
+    </div>
+
+    <!-- ============ QUICK-PICK STRIP (replaces the TOC) ============
+         One chip per product. Keep href numbers matching the
+         product ids below. -->
+    <nav class="shop-picks" aria-label="Products in this article">
+      <p class="shop-picks-title">The picks</p>
+      <ul class="shop-picks-list">
+        <li>
+          <a href="#product-0">
+            <img src="../images/desk-decor/flower-mirror.jpg" alt="" />
+            <span>Flower Table Mirror</span>
+          </a>
+        </li>
+        <li>
+          <a href="#product-1">
+            <img src="../images/desk-decor/circle-vase.jpg" alt="" />
+            <span>Wooden Minimal Vase</span>
+          </a>
+        </li>
+        <li>
+          <a href="#product-2">
+            <img src="../images/desk-decor/white-vase.jpg" alt="" />
+            <span>White Vase</span>
+          </a>
+        </li>
+        <!-- Add one <li> per additional product -->
+      </ul>
+    </nav>
+
+    <!-- ============ PRODUCT ROWS ============
+         Copy one whole <article class="shop-item"> to add a product.
+         Rows alternate left/right automatically via CSS.
+         REQUIRED per item: real photo, real price, affiliate link
+         with rel="sponsored noopener" + target="_blank", and the
+         shop-item-note line. -->
+    <div class="shop-list">
+
+      <article class="shop-item" id="product-0">
+        <div class="shop-item-media">
+          <img src="../images/desk-decor/flower-mirror.jpg" alt="Flower Table Mirror" />
+        </div>
+        <div class="shop-item-body">
+          <span class="shop-item-number">01</span>
+          <h2>Flower Table Mirror</h2>
+          <p class="shop-item-price">$68</p>
+          <p class="shop-item-text">
+            A little flower-shaped mirror that makes your vanity corner
+            instantly cuter 🌸✨ The soft, playful shape gives it that
+            Pinteresty feel, while the rotating design and handy tray make
+            it genuinely practical too. Perfect for everyday makeup,
+            jewellery, or those little things you always end up leaving around.
+          </p>
+          
+            href="https://amzn.to/4nwDLkw"
+            class="shop-item-button"
+            target="_blank"
+            rel="sponsored noopener"
+          >
+            Check it out on Amazon
+          </a>
+          <span class="shop-item-note">Affiliate link — we may earn a commission.</span>
+        </div>
+      </article>
+
+      <article class="shop-item" id="product-1">
+        <div class="shop-item-media">
+          <img src="../images/desk-decor/circle-vase.jpg" alt="Wooden Minimal Vase" />
+        </div>
+        <div class="shop-item-body">
+          <span class="shop-item-number">02</span>
+          <h2>Wooden Minimal Vase</h2>
+          <p class="shop-item-price">$29</p>
+          <p class="shop-item-text">
+            A minimal wooden vase that adds a touch of natural elegance
+            to any room.
+          </p>
+          
+            href="https://amzn.to/42CRvAT"
+            class="shop-item-button"
+            target="_blank"
+            rel="sponsored noopener"
+          >
+            Shop now
+          </a>
+          <span class="shop-item-note">Affiliate link — we may earn a commission.</span>
+        </div>
+      </article>
+
+      <article class="shop-item" id="product-2">
+        <div class="shop-item-media">
+          <img src="../images/desk-decor/white-vase.jpg" alt="White Vase" />
+        </div>
+        <div class="shop-item-body">
+          <span class="shop-item-number">03</span>
+          <h2>White Vase</h2>
+          <p class="shop-item-price">$29</p>
+          <p class="shop-item-text">
+            A minimal white vase that adds a touch of natural elegance
+            to any room.
+          </p>
+          
+            href="https://link.amazon/B08OPiOQV"
+            class="shop-item-button"
+            target="_blank"
+            rel="sponsored noopener"
+          >
+            Shop now
+          </a>
+          <span class="shop-item-note">Affiliate link — we may earn a commission.</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ============ UNCHANGED: footer link + related articles ============ -->
+    <div class="article-footer">
+      <a href="../blog.html">&larr; Back to all articles</a>
+    </div>
+
+    <section class="related-articles">
+      <div class="section-heading">
+        <p class="kicker">Keep exploring</p>
+        <h2>You might also like</h2>
+      </div>
+      <div class="related-grid" id="related-grid">
+        <!-- Related article cards are inserted here by JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DVA. Creative ideas &amp; inspiration.</p>
+  </footer>
+
+  <script src="../js/articles-data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    // >>> EDIT: replace with THIS article's own slug.
+    renderRelatedArticles("REPLACE-WITH-SLUG");
+  </script>
+
+</body>
+</html>

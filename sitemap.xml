@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  DVA — SITEMAP
+  ------------------------------------------------------------
+  Lists every page on the site so search engines (Google, Bing)
+  can discover and index them without needing to find every
+  link by crawling manually.
+
+  >>> BASE URL: replace "dva-blog.vercel.app/" below with
+  your real Vercel URL once you deploy.
+
+  HOW TO ADD A NEW ARTICLE HERE:
+  Every time you publish a new article page, copy one <url>
+  block below and update its <loc> to the new article's full
+  URL. Keep this file up to date so new pages get indexed.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://dva-blog.vercel.app//</loc>
+  </url>
+
+  <url>
+    <loc>https://dva-blog.vercel.app//blog.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dva-blog.vercel.app//articles/white-wedding-gown-designs.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dva-blog.vercel.app//articles/easy-oil-pastel-drawing-ideas.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dva-blog.vercel.app//articles/minimal-nail-designs.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dva-blog.vercel.app//articles/outfit-ideas-with-sandals.html</loc>
+  </url>
+
+  <!-- Add a new <url><loc>...</loc></url> block here for
+       every future article. -->
+
+</urlset>

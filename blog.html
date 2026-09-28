@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog — DVA | Ideas &amp; Inspiration</title>
+  <meta name="description" content="Browse creative ideas, beautiful designs and inspiration across art, fashion, beauty and weddings." />
+
+  <link rel="canonical" href="https://dva-blog.vercel.app//blog.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DVA" />
+  <meta property="og:title" content="Blog — DVA | Ideas &amp; Inspiration" />
+  <meta property="og:description" content="Browse creative ideas, beautiful designs and inspiration across art, fashion, beauty and weddings." />
+  <meta property="og:url" content="https://dva-blog.vercel.app//blog.html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — DVA | Ideas &amp; Inspiration" />
+  <meta name="twitter:description" content="Browse creative ideas, beautiful designs and inspiration across art, fashion, beauty and weddings." />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR — same block on every page. -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">DVA</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="blog-page">
+
+    <section class="blog-header">
+      <p class="kicker">The journal</p>
+      <h1>Ideas &amp; Inspiration</h1>
+      <p>
+        Discover creative ideas, beautiful designs and inspiration
+        across art, fashion, beauty and weddings.
+      </p>
+    </section>
+
+    <!-- ============================================
+         This grid starts EMPTY on purpose. JavaScript
+         fills it in automatically at page load by
+         reading every article from articles-data.js.
+
+         See js/main.js -> renderBlogGrid() for how.
+         ============================================ -->
+    <section class="blog-grid" id="blog-grid">
+      <!-- Article cards are inserted here by JavaScript -->
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DVA. Creative ideas &amp; inspiration.</p>
+  </footer>
+
+  <!-- ============================================
+       SCRIPT LOAD ORDER MATTERS:
+       articles-data.js must load BEFORE main.js,
+       because main.js's renderBlogGrid() function
+       expects the "articles" array to already exist.
+       ============================================ -->
+  <script src="js/articles-data.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
