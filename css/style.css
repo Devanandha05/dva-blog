@@ -1,0 +1,1280 @@
+/* ============================================================
+   DVA — BASE STYLESHEET
+   ------------------------------------------------------------
+   Design direction: warm editorial magazine — soft warm
+   neutrals, gentle shadows implying paper/print depth, rounded
+   photo corners like a curated mood board. Not a SaaS card grid.
+   ============================================================ */
+
+/* Google Font import — Playfair Display gives headings real
+   editorial character (distinct from default system serifs).
+   Loaded here so every page that links style.css gets it. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+
+/* ------------------------------------------------------------
+   1. CSS VARIABLES (design tokens)
+   ------------------------------------------------------------ */
+:root {
+  /* Colors — warm ivory + soft terracotta-rose palette */
+  --color-bg: #fbf6f1;            /* warm ivory background */
+  --color-surface: #ffffff;       /* card/section backgrounds */
+  --color-text: #2b2420;          /* warm near-black — never pure black */
+  --color-text-muted: #6f6259;    /* secondary text (descriptions) */
+  --color-text-faint: #a89a8f;    /* tertiary text (meta labels) */
+  --color-border: #ece1d6;        /* soft warm dividing lines */
+  --color-accent: #8c7364;        /* soft terracotta-rose — links, small accents */
+  --color-accent-deep: #b5654a;   /* deeper clay — buttons, hover states */
+
+  /* Fonts */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 70px;
+  --space-2xl: 110px;
+
+  /* Rounded corners — soft, not pill-shaped */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* Gentle warm-toned shadow, used sparingly for depth */
+  --shadow-soft: 0 12px 30px -18px rgba(43, 36, 32, 0.25);
+  --shadow-lift: 0 20px 40px -20px rgba(43, 36, 32, 0.35);
+
+  --max-width: 1200px;
+}
+
+
+/* ------------------------------------------------------------
+   2. RESET / BASE ELEMENT STYLES
+   ------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Small section label — sentence case with a soft accent dot,
+   replacing the tracked-out ALL-CAPS "eyebrow" convention. */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-deep);
+  display: inline-block;
+}
+
+
+/* ------------------------------------------------------------
+   3. NAVBAR
+   ------------------------------------------------------------ */
+.navbar {
+  background: rgba(251, 246, 241, 0.9);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-lg);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Soft underline that grows in on hover, instead of a color snap */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent-deep);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .nav-links {
+    gap: var(--space-md);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   4. FOOTER
+   ------------------------------------------------------------ */
+footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-faint);
+}
+
+
+/* ------------------------------------------------------------
+   5. SHARED "SECTION HEADING" PATTERN
+   ------------------------------------------------------------ */
+.section-heading {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section-heading h2 {
+  font-size: 34px;
+}
+
+
+/* ============================================================
+   6. HOMEPAGE — HERO SECTION
+   ============================================================ */
+
+.hero {
+  padding: var(--space-md) var(--space-md) var(--space-xl);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  line-height: 1.05;
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+
+.hero-description {
+  color: var(--color-text-muted);
+  max-width: 460px;
+  margin-bottom: var(--space-lg);
+  font-size: 17px;
+}
+
+/* Soft rounded, warm-toned button — no harsh outline snap */
+.hero-button {
+  display: inline-block;
+  padding: 15px 34px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-button:hover {
+  background: var(--color-accent-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Editorial hero image — cropped tall so a landscape source
+   photo reads as a vertical portrait, matching the text column. */
+.hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  background: linear-gradient(155deg, #f1e4d8, #e9d6c8);
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-image {
+    aspect-ratio: 4 / 3;
+    order: -1;
+  }
+}
+/* ============================================================
+   7. HOMEPAGE — CATEGORY GRID
+   ============================================================ */
+.categories {
+  padding: var(--space-2xl) var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.category-card {
+  text-align: center;
+}
+
+.category-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: var(--space-sm);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover .category-image {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.category-card h3 {
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.category-card p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* Warm gradient tints per category — replace with real
+   background-image: url(...) once photos are available. */
+.art-image     { background: linear-gradient(155deg, #efe2d2, #e3cdb2); }
+.wedding-image { background: linear-gradient(155deg, #f6ece5, #ecd8ca); }
+.fashion-image { background: linear-gradient(155deg, #ece0d8, #ddc4b6); }
+.beauty-image  { background: linear-gradient(155deg, #f3e2e0, #e4c3bf); }
+
+@media (max-width: 700px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+
+/* ============================================================
+   8. HOMEPAGE — FEATURED ARTICLES
+   ============================================================ */
+.featured {
+  padding: var(--space-2xl) var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+{/*
+.featured-card.large {
+  grid-column: span 2;
+}
+*/}
+
+.featured-card {
+  display: block;
+}
+
+.featured-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(155deg, #f1e4d8, #e9d6c8);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.featured-card:hover .featured-image img {
+  transform: scale(1.05);
+}
+
+.featured-info p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.featured-info h3 {
+  font-size: 23px;
+  line-height: 1.35;
+}
+
+.featured-card:hover .featured-info h3 {
+  color: var(--color-accent-deep);
+}
+
+@media (max-width: 800px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card.large {
+    grid-column: span 1;
+  }
+}
+
+/* ============================================================
+   About page
+   ============================================================ */
+
+.about {
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-frame {
+  width: 100%;
+  max-width: 760px;
+  padding: 70px 60px;
+  border: 1px solid #dedbd5;
+  text-align: center;
+}
+
+.about-frame .eyebrow,
+.about-frame h2,
+.about-frame .about-text {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-frame h2 {
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.about-frame .about-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 560px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 70px 20px;
+  }
+
+  .about-frame {
+    padding: 50px 28px;
+  }
+
+  .about-frame h2 {
+    font-size: 28px;
+  }
+
+  .about-frame .about-text {
+    font-size: 16px;
+  }
+}
+/* ============================================================
+   9. BLOG LISTING PAGE
+   ============================================================ */
+.blog-page {
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.blog-header {
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+  text-align: center;
+}
+
+.blog-header h1 {
+  font-size: 44px;
+  margin: var(--space-xs) 0 var(--space-md);
+  font-style: italic;
+}
+
+.blog-header p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.blog-card-image {
+  width: 80%;
+  height: 320px;
+  overflow: hidden;
+  background: linear-gradient(155deg, #f1e4d8, #e9d6c8);
+  margin-bottom: var(--space-sm);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover .blog-card-image {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.04);
+}
+
+.blog-category {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.blog-card h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.blog-description {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.read-more {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-accent-deep);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .blog-page {
+    padding: var(--space-xl) 20px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 50px;
+  }
+
+  .blog-card-image {
+    height: 380px;
+  }
+
+  .blog-header {
+    margin-bottom: 50px;
+  }
+
+  .blog-card h2 {
+    font-size: 26px;
+  }
+}
+
+
+/* ============================================================
+   10. ARTICLE PAGE
+   ============================================================ */
+.article-page {
+  padding-top: var(--space-xl);
+}
+
+/* Intro area: category label, title, description — centered,
+   generous whitespace, like the opening spread of a magazine
+   feature. */
+.article-intro {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  text-align: center;
+}
+
+.article-intro h1 {
+  font-size: 44px;
+  margin: var(--space-xs) 0 var(--space-md);
+  font-style: italic;
+}
+
+.article-intro .article-description {
+  color: var(--color-text-muted);
+  font-size: 17px;
+}
+
+/* Main hero image — full width within the content column,
+   natural aspect ratio (no forced crop), soft rounded corners. */
+.article-hero-image {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.article-hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Table of contents — soft card instead of hard-ruled borders */
+.article-toc {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.article-toc h3 {
+  font-size: 22px;
+  margin-bottom: var(--space-md);
+}
+
+.article-toc ul {
+  list-style: none;
+  columns: 2; /* two-column list — most articles have 10-20 short items */
+  column-gap: var(--space-lg);
+}
+
+.article-toc li {
+  margin-bottom: 12px;
+  break-inside: avoid; /* prevents a single item splitting across columns */
+}
+
+.article-toc a {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.article-toc a:hover {
+  color: var(--color-accent-deep);
+}
+
+/* Article body content column */
+.article-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.article-section {
+  margin-bottom: var(--space-xl);
+  scroll-margin-top: 100px; /* keeps the heading visible below the sticky navbar after an anchor jump */
+}
+
+.article-section h2 {
+  font-size: 28px;
+  margin-bottom: var(--space-md);
+}
+
+.article-section-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.article-section p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+.article-footer {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.article-footer a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-accent-deep);
+}
+
+@media (max-width: 700px) {
+  .article-intro h1 {
+    font-size: 32px;
+  }
+
+  .article-toc ul {
+    columns: 1;
+  }
+}
+/* ============================================
+   SHOPPING ARTICLE PAGE: "The Edit"
+   Scoped to .shop-page: safe for all other pages.
+   ============================================ */
+
+/* Tokens local to this page only */
+.shop-page {
+  --shop-cream: #f6f1ea;
+  --shop-line: #e3dcd2;
+}
+
+/* ---------- Intro ---------- */
+.shop-page .shop-hero {
+  max-width: 760px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-md);
+  text-align: center;
+}
+
+.shop-page .shop-hero h1 {
+  font-size: 52px;
+  line-height: 1.12;
+  font-style: italic;
+  margin: var(--space-xs) 0 var(--space-md);
+}
+
+.shop-page .shop-hero-text {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Disclosure ---------- */
+.shop-page .shop-disclosure {
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+  border-top: 1px solid var(--shop-line);
+  border-bottom: 1px solid var(--shop-line);
+}
+
+.shop-page .shop-disclosure p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Cover image ---------- */
+.shop-page .shop-cover {
+  max-width: 980px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.shop-page .pinnable {
+  position: relative;
+}
+
+.shop-page .shop-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Quick-pick strip ---------- */
+.shop-page .shop-picks {
+  max-width: 980px;
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-md);
+  background: var(--shop-cream);
+  border-radius: var(--radius-md);
+}
+
+.shop-page .shop-picks-title {
+  margin: 0 0 var(--space-sm);
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.shop-page .shop-picks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.shop-page .shop-picks-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px 6px 6px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.shop-page .shop-picks-list a:hover {
+  transform: translateY(-2px);
+  color: var(--color-accent-deep);
+}
+
+.shop-page .shop-picks-list img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* ---------- Product rows ---------- */
+.shop-page .shop-list {
+  max-width: 980px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.shop-page .shop-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--shop-line);
+  scroll-margin-top: 90px;
+}
+
+.shop-page .shop-item:last-child {
+  border-bottom: 1px solid var(--shop-line);
+}
+
+/* Alternate: even rows put the photo on the right */
+.shop-page .shop-item:nth-child(even) .shop-item-media {
+  order: 2;
+}
+
+/* Photo: portrait frame, arched top for a boutique feel */
+.shop-page .shop-item-media {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 200px 200px var(--radius-md) var(--radius-md);
+  background: var(--shop-cream);
+  box-shadow: var(--shadow-soft);
+}
+
+.shop-page .shop-item-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.shop-page .shop-item:hover .shop-item-media img {
+  transform: scale(1.05);
+}
+
+/* Text side */
+.shop-page .shop-item-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-md) 0;
+}
+
+/* Huge faded numeral sitting behind the heading */
+.shop-page .shop-item-number {
+  position: absolute;
+  top: -30px;
+  left: -8px;
+  font-size: 130px;
+  line-height: 1;
+  font-style: italic;
+  color: var(--shop-line);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.shop-page .shop-item-body > *:not(.shop-item-number) {
+  position: relative;
+  z-index: 1;
+}
+
+.shop-page .shop-item-body h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 400;
+  margin: var(--space-lg) 0 var(--space-xs);
+}
+
+.shop-page .shop-item-price {
+  margin: 0 0 var(--space-md);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--color-accent-deep);
+}
+
+.shop-page .shop-item-text {
+  margin: 0 0 var(--space-md);
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* Button: solid, pill, with a sliding arrow */
+.shop-page .shop-item-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: var(--color-accent-deep);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shop-page .shop-item-button::after {
+  content: "\2192";
+  transition: transform 0.25s ease;
+}
+
+.shop-page .shop-item-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.shop-page .shop-item-button:hover::after {
+  transform: translateX(5px);
+}
+
+.shop-page .shop-item-note {
+  margin-top: 12px;
+  font-size: 11.5px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  color: var(--color-text-muted);
+  opacity: 0.75;
+}
+
+/* ---------- Tablet & mobile ---------- */
+@media (max-width: 800px) {
+  .shop-page .shop-hero h1 {
+    font-size: 36px;
+  }
+
+  .shop-page .shop-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+  }
+
+  /* On mobile always show photo first, then text */
+  .shop-page .shop-item:nth-child(even) .shop-item-media {
+    order: 0;
+  }
+
+  .shop-page .shop-item-media {
+    border-radius: 140px 140px var(--radius-md) var(--radius-md);
+  }
+
+  .shop-page .shop-item-number {
+    font-size: 100px;
+    top: -10px;
+  }
+
+  .shop-page .shop-item-body h2 {
+    font-size: 28px;
+    margin-top: var(--space-md);
+  }
+
+  .shop-page .shop-item-button {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 30px;
+  }
+
+  .shop-page .shop-picks-list {
+    justify-content: flex-start;
+  }
+}
+
+/* ============================================================
+   11. RELATED ARTICLES
+   ============================================================ */
+.related-articles {
+  max-width: 1100px;
+  margin: var(--space-2xl) auto 0;
+  padding: var(--space-xl) var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.related-card {
+  display: block;
+}
+
+.related-card-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--space-sm);
+}
+
+.related-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.related-card:hover .related-card-image img {
+  transform: scale(1.05);
+}
+
+.related-card p {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.related-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.related-card:hover h3 {
+  color: var(--color-accent-deep);
+}
+
+@media (max-width: 768px) {
+  .related-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .related-card-image {
+    height: 320px;
+  }
+}
+
+
+/* ============================================================
+   13. AFFILIATE DISCLOSURE BANNER
+   ------------------------------------------------------------
+   Required on every affiliate/shopping article. Sits directly
+   under the intro, before any product content, so a visitor
+   sees it before they can click a shopping link.
+   ============================================================ */
+.disclosure-banner {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  background: #f3ece3;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.disclosure-banner p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   14. PRODUCT CARD (affiliate/shopping articles)
+   ------------------------------------------------------------
+   Replaces a plain .article-section for shopping posts. Visually
+   distinct from an inspiration section — bordered card with a
+   price tag and a prominent "Shop now" button — so it reads as
+   a product recommendation, not a mood-board entry.
+   ============================================================ */
+.product-card {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--space-xl);
+}
+
+.product-card-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card-info h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+  margin-bottom: var(--space-sm);
+}
+
+.product-card-info p.product-pitch {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: var(--space-md);
+}
+
+/* "Shop now" button — visually distinct from the Pinterest
+   save button and from the hero-button, so it reads clearly
+   as an outbound purchase link. */
+.shop-button {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--color-accent-deep);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.shop-button:hover {
+  background: #954d38;
+  transform: translateY(-2px);
+}
+
+/* Required disclosure microcopy directly under each button,
+   per FTC guidance: the "ad"/"affiliate" nature should be
+   clear at the point of the link itself, not just once at
+   the top of the page. */
+.affiliate-note {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--color-text-faint);
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card-image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+
+/* ============================================================
+   12. PINTEREST SAVE BUTTON
+   ------------------------------------------------------------
+   A "Save" button that appears on hover over any image inside
+   an element with class="pinnable". On touch devices (no real
+   hover), it's always visible so mobile visitors can still tap
+   it — this matters a lot since Pinterest traffic is mostly
+   mobile.
+   ============================================================ */
+.pinnable {
+  position: relative; /* anchors the button to this specific image wrapper */
+}
+
+.pin-save-button {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #e60023; /* Pinterest's own red — instantly recognizable */
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 24px; /* pill-shaped, matching Pinterest's own button style */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.pinnable:hover .pin-save-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pin-save-button:hover {
+  background: #ad081b; /* darker red on hover, like Pinterest's own button */
+}
+
+/* Touch devices generally can't hover, so keep the button visible
+   at all times below the desktop breakpoint. */
+@media (hover: none) {
+  .pin-save-button {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================
+       HOW TO USE THIS TEMPLATE FOR A NEW ARTICLE:
+
+       1. Copy this file and rename it to match your new
+          article's slug, e.g. "my-new-article.html".
+          Save it inside the /articles/ folder.
+
+       2. Update everything marked with ">>> EDIT" below:
+          - <title> and <meta description>
+          - Open Graph tags (og:title, og:description, og:image)
+          - The category kicker, <h1>, and intro description
+          - The main hero image src + alt
+          - The table of contents list (must match your sections)
+          - Every <section class="article-section"> block
+          - The renderRelatedArticles() call at the bottom —
+            change the slug to THIS article's slug
+
+       3. Add a matching object for this article to
+          js/articles-data.js (see instructions in that file).
+
+       4. Add a link to this article somewhere on the site —
+          it will already show up automatically on blog.html
+          and in other articles' "related" sections once it's
+          in articles-data.js.
+       ============================================ -->
+
+  <!-- >>> EDIT: page title + meta description -->
+  <title>15 Elegant Gown Designs — DVA</title>
+  <meta name="description" content="Explore elegant gown designs for a timeless and beautiful bridal look." />
+
+  <!-- Canonical URL — >>> EDIT the path after .vercel.app/articles/
+       to match this article's own filename. -->
+  <link rel="canonical" href="https://dva-yoursite.vercel.app/articles/elegant-gown-designs.html" />
+
+  <!-- ============================================
+       OPEN GRAPH / PINTEREST METADATA
+       These tags control how this page looks when
+       shared, pinned, or linked anywhere — including
+       the image and description Pinterest may pull in.
+       >>> EDIT all values below for each new article.
+       ============================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="DVA" />
+  <meta property="og:title" content="5 Elegant Gown Designs — DVA" />
+  <meta property="og:description" content="Explore elegant gown designs for a timeless and beautiful look." />
+  <meta property="og:image" content="../images/wedding-gown.jpg" />
+  <meta property="og:url" content="https://dva-yoursite.vercel.app/articles/elegant-gown-designs.html" />
+
+  <!-- Twitter Card — fallback metadata some platforms read
+       instead of Open Graph. -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="5 Elegant Gown Designs — DVA" />
+  <meta name="twitter:description" content="Explore elegant gown designs for a timeless and beautiful look." />
+  <meta name="twitter:image" content="../images/wedding-gown.jpg" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- ============================================
+       STRUCTURED DATA (JSON-LD)
+       Tells search engines this page is specifically an
+       "Article" — can help with rich results in Google
+       Search. >>> EDIT the headline, description, image,
+       and url fields for each new article.
+       ============================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 Elegant Gown Designs",
+    "description": "Explore elegant gown designs for a timeless and beautiful look.",
+    "image": "https://dva-yoursite.vercel.app/images/wedding-gown.jpg",
+    "url": "https://dva-yoursite.vercel.app/articles/elegant-gown-designs.html"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR — note the "../" before each link, since this
+       page lives one folder deeper than index.html/blog.html. -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">DVA</a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+
+    <!-- ============================================
+         ARTICLE INTRO
+         >>> EDIT: category, title, description
+         ============================================ -->
+    <section class="article-intro">
+      <p class="kicker">Elegance</p>
+      <h1>5 Elegant Gown Designs</h1>
+      <p class="article-description">
+        Explore elegant gown designs for a timeless and beautiful look.
+      </p>
+    </section>
+
+    <!-- ============================================
+         MAIN HERO IMAGE
+         >>> EDIT: src + alt
+         ============================================ -->
+    <div class="article-hero-image">
+      <div class="pinnable" data-description="5 Elegant Gown Designs">
+        <img src="../images/wedding-gown.jpg" alt="5 Elegant Gown Designs" />
+      </div>
+    </div>
+
+    <!-- ============================================
+         TABLE OF CONTENTS
+         >>> EDIT: must have one <li> per section below,
+         with matching href="#section-N" ids in order.
+         ============================================ -->
+    <nav class="article-toc">
+      <h3>In this article</h3>
+      <ul>
+        <li><a href="#section-0">1. Classic A-Line Wedding Gown</a></li>
+        <li><a href="#section-1">2. Minimal Satin Wedding Gown</a></li>
+        <li><a href="#section-2">3. Lace Wedding Gown</a></li>
+        <li><a href="#section-3">4. Off-Shoulder Wedding Gown</a></li>
+        <li><a href="#section-4">5. Long-Sleeve Wedding Gown</a></li>
+        <li><a href="#section-5">6. Ball Gown</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================
+         ARTICLE SECTIONS
+         >>> EDIT: one <section> per idea/item. Copy-paste
+         the whole block below to add more sections — just
+         keep the id="section-N" numbers in order starting
+         from 0, matching the table of contents above.
+
+         The <img> line is OPTIONAL per section — delete it
+         entirely if you don't have an image for that item yet.
+         Do not point it at an image that doesn't exist.
+         ============================================ -->
+    <div class="article-content">
+
+      <section class="article-section" id="section-0">
+        <h2>1. Classic A-Line Wedding Gown</h2>
+        <!-- <img src="../images/wedding/a-line.jpg" alt="Classic A-Line Wedding Gown" class="article-section-image" /> -->
+        <p>An A-line wedding gown is a timeless choice with a fitted bodice and gently flowing skirt. It creates a graceful silhouette and works well for both traditional and modern weddings.</p>
+      </section>
+
+      <section class="article-section" id="section-1">
+        <h2>2. Minimal Satin Wedding Gown</h2>
+        <p>A smooth satin gown creates an elegant and polished bridal look. Keeping the design simple allows the fabric, neckline and silhouette to become the main focus.</p>
+      </section>
+
+      <section class="article-section" id="section-2">
+        <h2>3. Lace Wedding Gown</h2>
+        <p>Lace adds texture and a romantic character to a gown. It can cover the entire dress or be used selectively around the sleeves, neckline or bodice.</p>
+      </section>
+
+      <section class="article-section" id="section-3">
+        <h2>4. Off-Shoulder Wedding Gown</h2>
+        <p>An off-shoulder neckline adds a soft feminine detail while keeping the rest of the gown clean and sophisticated.</p>
+      </section>
+
+      <section class="article-section" id="section-4">
+        <h2>5. Long-Sleeve Wedding Gown</h2>
+        <p>Long sleeves can give a wedding gown a refined and graceful appearance. Lace or sheer sleeves can add detail without making the design feel heavy.</p>
+      </section>
+    </div>
+
+    <div class="article-footer">
+      <a href="../blog.html">&larr; Back to all articles</a>
+    </div>
+
+    <!-- ============================================
+         RELATED ARTICLES
+         This grid fills in automatically via JavaScript
+         (see renderRelatedArticles() in main.js) — you
+         never need to edit the related-grid section itself,
+         only the slug passed into the function call at the
+         bottom of this file.
+         ============================================ -->
+    <section class="related-articles">
+      <div class="section-heading">
+        <p class="kicker">Keep exploring</p>
+        <h2>You might also like</h2>
+      </div>
+      <div class="related-grid" id="related-grid">
+        <!-- Related article cards are inserted here by JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DVA. Creative ideas &amp; inspiration.</p>
+  </footer>
+
+  <!-- Paths use "../" since this page is one folder deeper
+       than the site root. -->
+  <script src="../js/articles-data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    // >>> EDIT: replace with THIS article's own slug so it
+    // doesn't show up in its own "related articles" list.
+    renderRelatedArticles("elegant-gown-designs");
+  </script>
+
+</body>
+</html>

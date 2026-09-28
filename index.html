@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================
+       SEO — will be made more specific in Stage 6,
+       but every page should always have a real
+       title + description from day one.
+       ============================================ -->
+  <title>DVA — Ideas Worth Saving</title>
+  <meta name="description" content="A visual inspiration magazine covering art, weddings, fashion and beauty — discover ideas worth saving." />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       NAVBAR — same block on every page.
+       ============================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">DVA</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="kicker">Art, style &amp; everyday inspiration</p>
+        <h1>Ideas worth<br />saving.</h1>
+        <p class="hero-description">
+          Discover creative ideas, beautiful designs and everyday
+          inspiration for your next project, look or moment.
+        </p>
+        <a href="blog.html" class="hero-button">Explore ideas</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero.png" alt="Flat lay of art supplies, interiors, fashion and beauty inspiration">
+      </div>
+    </section>
+
+    <!-- ============================================
+         CATEGORY GRID
+         Each card just links to the blog page for now.
+         Real category filtering comes in a later stage.
+         ============================================ -->
+    <section class="categories">
+      <div class="section-heading">
+        <p class="kicker">Explore</p>
+        <h2>Find your inspiration</h2>
+      </div>
+
+      <div class="category-grid">
+        <a href="blog.html" class="category-card">
+          <div class="category-image art-image">
+            <img src="./images/hero/oil-pastel-hero.png" alt="Art and drawing inspiration">
+          </div>
+          <h3>Art &amp; Drawing</h3>
+          <p>Creative ideas &amp; tutorials</p>
+        </a>
+        <a href="blog.html" class="category-card">
+          <div class="category-image wedding-image">
+            <img src="./images/hero/wedding-hero.png" alt="Wedding gown inspiration">
+          </div>
+          <h3>Elegance</h3>
+          <p>Elegant designs &amp; inspiration</p>
+        </a>
+        <a href="blog.html" class="category-card">
+          <div class="category-image fashion-image">
+            <img src="./images/white-top.jpg" alt="Fashion outfit ideas">
+          </div>
+          <h3>Fashion</h3>
+          <p>Outfit ideas &amp; styling</p>
+        </a>
+        <a href="blog.html" class="category-card">
+          <div class="category-image nails-image">
+            <img src="./images/nails.jpg" alt="Minimal nail design ideas">
+          </div>
+          <h3>Nails</h3>
+          <p>Nails &amp; Inspiration</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FEATURED ARTICLES
+         These links are HAND-PLACED and hard-coded on
+         purpose — the homepage should showcase your
+         3 best-performing articles, which you choose
+         manually, not automatically.
+
+         IMPORTANT: update the href="" links below once
+         the real article pages exist in /articles/.
+         ============================================ -->
+    <section class="featured">
+      <div class="section-heading">
+        <p class="kicker">Featured</p>
+        <h2>Ideas to save for later</h2>
+      </div>
+
+      <div class="featured-grid">
+        <a href="articles/elegant-gown-designs.html" class="featured-card large">
+          <div class="featured-image">
+            <img src="images/cape-gown.jpg" alt="Elegant gown designs" />
+          </div>
+          <div class="featured-info">
+            <p>Elegance</p>
+            <h3>5 Elegant Gown Designs</h3>
+          </div>
+        </a>
+
+        <a href="articles/easy-oil-pastel-drawing-ideas.html" class="featured-card">
+          <div class="featured-image">
+            <img src="images/oil-pastel/oil-pastel.png" alt="Easy oil pastel drawing ideas" />
+          </div>
+          <div class="featured-info">
+            <p>Art</p>
+            <h3>Easy Oil Pastel Ideas for Beginners</h3>
+          </div>
+        </a>
+
+        <a href="articles/minimal-nail-designs.html" class="featured-card">
+          <div class="featured-image">
+            <img src="images/nails.jpg" alt="Minimal nail design ideas" />
+          </div>
+          <div class="featured-info">
+            <p>Beauty</p>
+            <h3>Minimal Nail Designs to Try</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+          <div class="about-frame">
+            <p class="eyebrow">ABOUT DVA</p>
+            <h2>A quiet corner for creative ideas.</h2>
+            <p class="about-text">
+              DVA is a small collection of visual inspiration for the things
+              you love to save: art and drawing ideas, home decor,
+              everyday style and beauty. Each article is put together to be
+              simple to browse, so you can find an idea, save it, and come
+              back to it when you're ready.
+            </p>
+          </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DVA. Creative ideas &amp; inspiration.</p>
+  </footer>
+
+</body>
+</html>

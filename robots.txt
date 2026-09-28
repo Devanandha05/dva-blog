@@ -1,0 +1,13 @@
+# DVA — robots.txt
+# ------------------------------------------------------------
+# Tells search engine crawlers which parts of the site they're
+# allowed to visit, and points them to the sitemap so they can
+# find every page.
+#
+# >>> Replace "dva-yoursite.vercel.app" below with your real
+# Vercel URL once you deploy.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://dva-yoursite.vercel.app/sitemap.xml
