@@ -20,11 +20,7 @@
    hand-write a new card in HTML — you just add a new object to
    articles-data.js and this function does the rest.
    ------------------------------------------------------------ */
-import { inject } from "@vercel/analytics";
-
-inject();
-
-   function renderBlogGrid() {
+  function renderBlogGrid() {
   const gridContainer = document.getElementById("blog-grid");
 
   // Safety check: if this page has no #blog-grid element, do nothing.

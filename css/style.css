@@ -373,12 +373,6 @@ footer {
   gap: var(--space-lg);
 }
 
-{/*
-.featured-card.large {
-  grid-column: span 2;
-}
-*/}
-
 .featured-card {
   display: block;
 }
@@ -1276,5 +1270,115 @@ footer {
   .pin-save-button {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ============================================================
+   DESIGN PAGE (one page per pin)
+   ------------------------------------------------------------
+   Scoped to .design-page so nothing else on the site changes.
+   ============================================================ */
+
+/* Pin image: shown first, portrait-friendly, not stretched */
+.design-page .design-hero {
+  max-width: 520px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-md);
+}
+
+.design-page .design-hero img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.design-page .design-intro {
+  margin-bottom: var(--space-lg);
+}
+
+/* Content blocks */
+.design-page .design-block {
+  margin-bottom: var(--space-xl);
+}
+
+.design-page .design-block h2 {
+  font-size: 26px;
+  margin-bottom: var(--space-md);
+}
+
+.design-page .design-block p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+/* Design details: label / value rows */
+.design-page .design-details {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.design-page .design-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.design-page .design-details > div:last-child {
+  border-bottom: none;
+}
+
+.design-page .design-details dt {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.design-page .design-details dd {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* Styling tips */
+.design-page .design-tips {
+  list-style: none;
+}
+
+.design-page .design-tips li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 15.5px;
+}
+
+.design-page .design-tips li:last-child {
+  border-bottom: none;
+}
+
+.design-page .design-tips strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Extra images: Save button needs a positioned wrapper (already set
+   globally by .pinnable) and a little spacing between images */
+.design-page .design-block .pinnable {
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 600px) {
+  .design-page .design-details > div {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .design-page .design-details dd {
+    text-align: left;
   }
 }

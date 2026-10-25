@@ -78,6 +78,16 @@ const articles = [
     description: "Our favorite affordable room decor items to shop right now, for a minimal decor look.",
     image: "images/desk-decor/vase-decor.jpg",
     isAffiliate: true
+  },
+
+  {
+    id: 6,
+    slug: "ivory-cape-sleeve-gold-beaded-gown",
+    title: "Ivory Cape-Sleeve Wedding Gown with Gold Beaded Embroidery",
+    category: "Elegance",
+    description: "A sleek ivory column wedding gown with a square neckline, flowing cape sleeves and delicate gold beaded florals.",
+    image: "images/cape-gown.jpg",
+    isAffiliate: false
   }
 
   /* ----------------------------------------------------------
