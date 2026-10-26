@@ -143,3 +143,91 @@ function addPinterestSaveButtons() {
 
 document.addEventListener("DOMContentLoaded", addPinterestSaveButtons);
 
+/* ------------------------------------------------------------
+   Transparent navbar (homepage only)
+   Adds the "scrolled" class once the visitor scrolls down a bit,
+   which makes the navbar solid. Does nothing on pages without
+   a .navbar-overlay.
+   ------------------------------------------------------------ */
+function initTransparentNavbar() {
+  const navbar = document.querySelector(".navbar-overlay");
+  if (!navbar) return;
+
+  const update = () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 40);
+  };
+
+  update(); // set the correct state on load (e.g. after a refresh mid-page)
+  window.addEventListener("scroll", update, { passive: true });
+}
+
+document.addEventListener("DOMContentLoaded", initTransparentNavbar);
+
+/* ------------------------------------------------------------
+   Scroll reveal (homepage About section)
+   Fades elements in once as they scroll into view.
+   ------------------------------------------------------------ */
+function initScrollReveal() {
+  const targets = document.querySelectorAll(".about-collage, .about-copy");
+  if (!targets.length || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+
+function renderShopPage() {
+  const picksContainer = document.getElementById("shop-picks-list");
+  const listContainer = document.getElementById("shop-list");
+
+  // Do nothing on pages that aren't shop pages
+  if (!picksContainer || !listContainer) return;
+
+  // Which product list does THIS page want?
+  const category = listContainer.dataset.category;
+  const products = productLists[category];
+
+  if (!products || products.length === 0) {
+    console.warn("No products found for category:", category);
+    return;
+  }
+
+  picksContainer.innerHTML = products.map((p, i) => `
+    <li>
+      <a href="#product-${i}">
+        <img src="../${p.image}" alt="" />
+        <span>${p.name}</span>
+      </a>
+    </li>
+  `).join("");
+
+  listContainer.innerHTML = products.map((p, i) => `
+    <article class="shop-item" id="product-${i}">
+      <div class="shop-item-media">
+        <img src="../${p.image}" alt="${p.name}" />
+      </div>
+      <div class="shop-item-body">
+        <span class="shop-item-number">${String(i + 1).padStart(2, "0")}</span>
+        <h2>${p.name}</h2>
+        <p class="shop-item-price">${p.price}</p>
+        <p class="shop-item-text">${p.description}</p>
+        <a href="${p.link}" class="shop-item-button" target="_blank" rel="sponsored noopener">
+          ${p.buttonText || "Shop now"}
+        </a>
+        <span class="shop-item-note">Affiliate link — we may earn a commission.</span>
+      </div>
+    </article>
+  `).join("");
+}

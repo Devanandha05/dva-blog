@@ -48,13 +48,13 @@
   <meta property="og:site_name" content="DVA" />
   <meta property="og:title" content="Shop Affordable Room Decor We Love — DVA" />
   <meta property="og:description" content="Our favorite affordable room decor items to shop right now, handpicked for every kind of celebration." />
-  <meta property="og:image" content="../images/REPLACE-ME.jpg" />
+  <meta property="og:image" content="../images/rectangle-mirror.png" />
   <meta property="og:url" content="https://dva-blog.vercel.app//articles/affordable-room-decor.html" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shop Affordable Room Decor We Love — DVA" />
   <meta name="twitter:description" content="Our favorite affordable room decor items to shop right now, handpicked for every kind of celebration." />
-  <meta name="twitter:image" content="../images/REPLACE-ME.jpg" />
+  <meta name="twitter:image" content="../images/rectangle-mirror.png" />
 
   <link rel="stylesheet" href="../css/style.css" />
 
@@ -64,7 +64,7 @@
     "@type": "Article",
     "headline": "Shop Affordable Room Decor We Love",
     "description": "Our favorite affordable room decor items to shop right now, handpicked for every kind of celebration.",
-    "image": "https://dva-blog.vercel.app//images/REPLACE-ME.jpg",
+    "image": "https://dva-blog.vercel.app//images/rectangle-mirror.png",
     "url": "https://dva-blog.vercel.app//articles/affordable-room-decor.html"
   }
   </script>
@@ -89,7 +89,7 @@
       <h1>Shop Affordable Home Decor We Love</h1>
       <p class="shop-hero-text">
         Small, pretty, budget-friendly pieces that make a room feel
-        finished. Handpicked, and all under $70.
+        finished.
       </p>
     </section>
 
@@ -105,49 +105,25 @@
     <!-- ============ HERO IMAGE ============ -->
     <div class="shop-cover">
       <div class="pinnable" data-description="Affordable Home Decor We Love">
-        <img src="../images/vase-decor.jpg" alt="Affordable room decor items" />
+        <img src="../images/hero/room-decor-hero.png" alt="Affordable room decor items" />
       </div>
     </div>
 
-    <!-- ============ QUICK-PICK STRIP (replaces the TOC) ============
-         One chip per product. Keep href numbers matching the
-         product ids below. -->
+    <!-- ============ QUICK-PICK STRIP (replaces the TOC) ============-->
+
     <nav class="shop-picks" aria-label="Products in this article">
       <p class="shop-picks-title">The picks</p>
-      <ul class="shop-picks-list">
-        <li>
-          <a href="#product-0">
-            <img src="../images/desk-decor/flower-mirror.jpg" alt="" />
-            <span>Flower Table Mirror</span>
-          </a>
-        </li>
-        <li>
-          <a href="#product-1">
-            <img src="../images/desk-decor/circle-vase.jpg" alt="" />
-            <span>Wooden Minimal Vase</span>
-          </a>
-        </li>
-        <li>
-          <a href="#product-2">
-            <img src="../images/desk-decor/white-vase.jpg" alt="" />
-            <span>White Vase</span>
-          </a>
-        </li>
-        <!-- Add one <li> per additional product -->
-      </ul>
-    </nav>
-
     <!-- ============ PRODUCT ROWS ============
          Copy one whole <article class="shop-item"> to add a product.
          Rows alternate left/right automatically via CSS.
          REQUIRED per item: real photo, real price, affiliate link
          with rel="sponsored noopener" + target="_blank", and the
          shop-item-note line. -->
-    <div class="shop-list">
-
+  <div class="shop-list" id="shop-list" data-category="room-decor">
+    
       <article class="shop-item" id="product-0">
         <div class="shop-item-media">
-          <img src="../images/desk-decor/flower-mirror.jpg" alt="Flower Table Mirror" />
+          <img src="../images/room-decor/flower-mirror.jpg" alt="Flower Table Mirror" />
         </div>
         <div class="shop-item-body">
           <span class="shop-item-number">01</span>
@@ -160,7 +136,7 @@
             it genuinely practical too. Perfect for everyday makeup,
             jewellery, or those little things you always end up leaving around.
           </p>
-          
+          <a
             href="https://amzn.to/4nwDLkw"
             class="shop-item-button"
             target="_blank"
@@ -174,7 +150,7 @@
 
       <article class="shop-item" id="product-1">
         <div class="shop-item-media">
-          <img src="../images/desk-decor/circle-vase.jpg" alt="Wooden Minimal Vase" />
+          <img src="../images/room-decor/circle-vase.jpg" alt="Wooden Minimal Vase" />
         </div>
         <div class="shop-item-body">
           <span class="shop-item-number">02</span>
@@ -184,7 +160,7 @@
             A minimal wooden vase that adds a touch of natural elegance
             to any room.
           </p>
-          
+          <a
             href="https://amzn.to/42CRvAT"
             class="shop-item-button"
             target="_blank"
@@ -198,7 +174,7 @@
 
       <article class="shop-item" id="product-2">
         <div class="shop-item-media">
-          <img src="../images/desk-decor/white-vase.jpg" alt="White Vase" />
+          <img src="../images/hero/room-decor-hero.png" alt="White Vase" />
         </div>
         <div class="shop-item-body">
           <span class="shop-item-number">03</span>
@@ -208,7 +184,7 @@
             A minimal white vase that adds a touch of natural elegance
             to any room.
           </p>
-          
+          <a
             href="https://link.amazon/B08OPiOQV"
             class="shop-item-button"
             target="_blank"
@@ -221,6 +197,7 @@
       </article>
 
     </div>
+    </nav>
 
     <!-- ============ UNCHANGED: footer link + related articles ============ -->
     <div class="article-footer">
@@ -247,7 +224,7 @@
   <script src="../js/main.js"></script>
   <script>
     // >>> EDIT: replace with THIS article's own slug.
-    renderRelatedArticles("REPLACE-WITH-SLUG");
+    renderRelatedArticles("affordable-room-decor");
   </script>
 
 </body>

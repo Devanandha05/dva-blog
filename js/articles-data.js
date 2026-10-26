@@ -37,16 +37,16 @@ const articles = [
   {
     id: 1,
     slug: "elegant-gown-designs",
-    title: "5 Elegant Gown Designs",
+    title: "Elegant Gown Designs",
     category: "Elegance",
     description: "Explore elegant gown designs for a timeless and beautiful look.",
-    image: "images/cape-gown.jpg",
+    image: "images/gowns/cape-gown.jpg",
     isAffiliate: false
   },
   {
     id: 2,
     slug: "easy-oil-pastel-drawing-ideas",
-    title: "15 Easy Oil Pastel Drawing Ideas",
+    title: "Easy Oil Pastel Drawing Ideas Anyone Can Try",
     category: "Art",
     description: "Beautiful and beginner-friendly oil pastel ideas to try when you want to create something.",
     image: "images/oil-pastel/oil-pastel.png",
@@ -55,41 +55,30 @@ const articles = [
   {
     id: 3,
     slug: "minimal-nail-designs",
-    title: "20 Minimal Nail Designs to Try",
+    title: "Minimal Nail Designs to Try",
     category: "Beauty",
     description: "Simple and elegant nail ideas that work beautifully with everyday jewelry and outfits.",
-    image: "images/nails.jpg",
+    image: "images/minimal-nails/nails.jpg",
     isAffiliate: false
   },
   {
     id: 4,
-    slug: "outfit-ideas-with-sandals",
-    title: "15 Outfit Ideas to Style With Sandals",
+    slug: "classy-outfit-ideas",
+    title: "Classy Outfit Ideas for a Chic Look",
     category: "Fashion",
-    description: "Easy outfit inspiration featuring stylish and comfortable sandals.",
-    image: "images/sandals.jpg",
-    isAffiliate: false
+    description: "Classy outfit ideas for a chic and sophisticated look.",
+    image: "images/outfits/white-top.jpg",
+    isAffiliate: true
   },
   {
     id: 5,
     slug: "affordable-room-decor",
     title: "Shop Affordable Room Decor We Love",
-    category: "Affordable Room Decor",
+    category: "Decor",
     description: "Our favorite affordable room decor items to shop right now, for a minimal decor look.",
-    image: "images/desk-decor/vase-decor.jpg",
+    image: "images/room-decor/rectangle-mirror.png",
     isAffiliate: true
-  },
-
-  {
-    id: 6,
-    slug: "ivory-cape-sleeve-gold-beaded-gown",
-    title: "Ivory Cape-Sleeve Wedding Gown with Gold Beaded Embroidery",
-    category: "Elegance",
-    description: "A sleek ivory column wedding gown with a square neckline, flowing cape sleeves and delicate gold beaded florals.",
-    image: "images/cape-gown.jpg",
-    isAffiliate: false
   }
-
   /* ----------------------------------------------------------
      Add new article objects below this line, following the
      same format. Don't forget the comma after the closing }

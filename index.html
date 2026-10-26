@@ -20,12 +20,13 @@
   <!-- ============================================
        NAVBAR — same block on every page.
        ============================================ -->
-  <header class="navbar">
+<header class="navbar navbar-overlay">
     <div class="nav-container">
       <a href="index.html" class="logo">DVA</a>
       <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
+        <a href="blog.html">Articles</a>
+        <a href="#about">About Dva</a>
       </nav>
     </div>
   </header>
@@ -36,6 +37,14 @@
          HERO SECTION
          ============================================ -->
     <section class="hero">
+      <img
+        class="hero-bg"
+        src="images/hero.png"
+        alt="Flat lay of art supplies, interiors, fashion and beauty inspiration"
+        fetchpriority="high"
+      />
+      <div class="hero-overlay"></div>
+
       <div class="hero-content">
         <p class="kicker">Art, style &amp; everyday inspiration</p>
         <h1>Ideas worth<br />saving.</h1>
@@ -44,9 +53,6 @@
           inspiration for your next project, look or moment.
         </p>
         <a href="blog.html" class="hero-button">Explore ideas</a>
-      </div>
-      <div class="hero-image">
-        <img src="images/hero.png" alt="Flat lay of art supplies, interiors, fashion and beauty inspiration">
       </div>
     </section>
 
@@ -78,14 +84,14 @@
         </a>
         <a href="blog.html" class="category-card">
           <div class="category-image fashion-image">
-            <img src="./images/white-top.jpg" alt="Fashion outfit ideas">
+            <img src="./images/outfits/white-top.jpg" alt="Fashion outfit ideas">
           </div>
           <h3>Fashion</h3>
           <p>Outfit ideas &amp; styling</p>
         </a>
         <a href="blog.html" class="category-card">
           <div class="category-image nails-image">
-            <img src="./images/nails.jpg" alt="Minimal nail design ideas">
+            <img src="./images/minimal-nails/nails.jpg" alt="Minimal nail design ideas">
           </div>
           <h3>Nails</h3>
           <p>Nails &amp; Inspiration</p>
@@ -112,7 +118,7 @@
       <div class="featured-grid">
         <a href="articles/elegant-gown-designs.html" class="featured-card large">
           <div class="featured-image">
-            <img src="images/cape-gown.jpg" alt="Elegant gown designs" />
+            <img src="images/gowns/cape-gown.jpg" alt="Elegant gown designs" />
           </div>
           <div class="featured-info">
             <p>Elegance</p>
@@ -132,7 +138,7 @@
 
         <a href="articles/minimal-nail-designs.html" class="featured-card">
           <div class="featured-image">
-            <img src="images/nails.jpg" alt="Minimal nail design ideas" />
+            <img src="images/minimal-nails/nails.jpg" alt="Minimal nail design ideas" />
           </div>
           <div class="featured-info">
             <p>Beauty</p>
@@ -143,24 +149,52 @@
     </section>
 
     <!-- About -->
-    <section class="about">
-          <div class="about-frame">
-            <p class="eyebrow">ABOUT DVA</p>
-            <h2>A quiet corner for creative ideas.</h2>
-            <p class="about-text">
-              DVA is a small collection of visual inspiration for the things
-              you love to save: art and drawing ideas, home decor,
-              everyday style and beauty. Each article is put together to be
-              simple to browse, so you can find an idea, save it, and come
-              back to it when you're ready.
-            </p>
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="about-inner">
+
+        <div class="about-collage">
+          <div class="about-photo about-photo-main">
+            <img src="images/hero/wedding-hero.png" alt="Elegant wedding gown inspiration" loading="lazy" />
           </div>
+          <div class="about-photo about-photo-small">
+            <img src="images/hero/oil-pastel-hero.png" alt="Oil pastel art inspiration" loading="lazy" />
+          </div>
+          <div class="about-badge" aria-hidden="true">
+            <span>Ideas<br />worth<br />saving</span>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <p class="kicker">About DVA</p>
+          <h2>A quiet corner for <em>creative ideas.</em></h2>
+          <p class="about-text">
+            DVA is a small collection of visual inspiration for the things
+            you love to save: art and drawing ideas, elegant designs,
+            everyday style and beauty.
+          </p>
+          <p class="about-text">
+            Every article is put together to be simple to browse, so you can
+            find an idea, save it, and come back to it when you're ready.
+          </p>
+
+          <ul class="about-tags">
+            <li>Art &amp; drawing</li>
+            <li>Elegance</li>
+            <li>Fashion</li>
+            <li>Nails &amp; beauty</li>
+          </ul>
+
+          <a href="blog.html" class="about-link">Browse the journal</a>
+        </div>
+
+      </div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2026 DVA. Creative ideas &amp; inspiration.</p>
   </footer>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
