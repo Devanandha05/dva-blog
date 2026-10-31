@@ -34,30 +34,36 @@
     </div>
   </header>
 
-  <main class="blog-page">
+<main class="blog-page">
 
-    <section class="blog-header">
+  <!-- Header band with floating photos -->
+  <section class="blog-hero">
+    <div class="blog-hero-blob blob-1"></div>
+    <div class="blog-hero-blob blob-2"></div>
+
+    <div class="hero-photo hero-photo-left">
+      <img src="images/hero/wedding-hero.png" alt="" />
+    </div>
+    <div class="hero-photo hero-photo-right">
+      <img src="images/hero/oil-pastel-hero.png" alt="" />
+    </div>
+
+    <div class="blog-header">
       <p class="kicker">The journal</p>
       <h1>Ideas &amp; Inspiration</h1>
       <p>
         Discover creative ideas, beautiful designs and inspiration
         across art, fashion, beauty and weddings.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============================================
-         This grid starts EMPTY on purpose. JavaScript
-         fills it in automatically at page load by
-         reading every article from articles-data.js.
+  <!-- Filled by JavaScript -->
+  <div class="blog-filters" id="blog-filters"></div>
+  <section class="blog-feature" id="blog-feature"></section>
+  <section class="blog-grid" id="blog-grid"></section>
 
-         See js/main.js -> renderBlogGrid() for how.
-         ============================================ -->
-    <section class="blog-grid" id="blog-grid">
-      <!-- Article cards are inserted here by JavaScript -->
-    </section>
-
-  </main>
-
+</main>
   <footer>
     <p>&copy; 2026 DVA. Creative ideas &amp; inspiration.</p>
   </footer>

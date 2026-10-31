@@ -45,6 +45,15 @@ const articles = [
   },
   {
     id: 2,
+    slug: "affordable-room-decor",
+    title: "Shop Affordable Room Decor We Love",
+    category: "Decor",
+    description: "Our favorite affordable room decor items to shop right now, for a minimal decor look.",
+    image: "images/room-decor/rectangle-mirror.png",
+    isAffiliate: true
+  },
+  {
+    id: 3,
     slug: "easy-oil-pastel-drawing-ideas",
     title: "Easy Oil Pastel Drawing Ideas Anyone Can Try",
     category: "Art",
@@ -53,7 +62,7 @@ const articles = [
     isAffiliate: false
   },
   {
-    id: 3,
+    id: 4,
     slug: "minimal-nail-designs",
     title: "Minimal Nail Designs to Try",
     category: "Beauty",
@@ -62,23 +71,15 @@ const articles = [
     isAffiliate: false
   },
   {
-    id: 4,
+    id: 5,
     slug: "classy-outfit-ideas",
     title: "Classy Outfit Ideas for a Chic Look",
     category: "Fashion",
     description: "Classy outfit ideas for a chic and sophisticated look.",
     image: "images/outfits/white-top.jpg",
     isAffiliate: true
-  },
-  {
-    id: 5,
-    slug: "affordable-room-decor",
-    title: "Shop Affordable Room Decor We Love",
-    category: "Decor",
-    description: "Our favorite affordable room decor items to shop right now, for a minimal decor look.",
-    image: "images/room-decor/rectangle-mirror.png",
-    isAffiliate: true
   }
+
   /* ----------------------------------------------------------
      Add new article objects below this line, following the
      same format. Don't forget the comma after the closing }

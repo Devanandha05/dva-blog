@@ -20,31 +20,115 @@
    hand-write a new card in HTML — you just add a new object to
    articles-data.js and this function does the rest.
    ------------------------------------------------------------ */
-  function renderBlogGrid() {
-  const gridContainer = document.getElementById("blog-grid");
+function renderBlogGrid() {
+  const grid = document.getElementById("blog-grid");
+  if (!grid) return;
 
-  // Safety check: if this page has no #blog-grid element, do nothing.
-  // (Prevents errors on pages that load main.js but aren't the blog page.)
-  if (!gridContainer) return;
+  const filtersEl = document.getElementById("blog-filters");
+  const featureEl = document.getElementById("blog-feature");
 
-  // Build one HTML card per article, then join them into a single string.
-  const cardsHTML = articles.map((article) => `
-    <a href="articles/${article.slug}.html" class="blog-card">
-      <div class="blog-card-image">
-        <img src="${article.image}" alt="${article.title}" />
-      </div>
-      <div class="blog-card-content">
-        <p class="blog-category">${article.category}</p>
-        <h2>${article.title}</h2>
-        <p class="blog-description">${article.description}</p>
-        <span class="read-more">Read article</span>
-      </div>
-    </a>
-  `).join("");
+  // Featured article: the first one with featured: true, else the first in the list
+  const featured = articles.find((a) => a.featured) || articles[0];
+  const categories = [...new Set(articles.map((a) => a.category))];
+  let activeCategory = "All";
 
-  gridContainer.innerHTML = cardsHTML;
+  // Change this to your real Pinterest profile URL
+  const PINTEREST_URL = "https://www.pinterest.com/YOUR-USERNAME/";
+
+  function cardHTML(a) {
+    return `
+      <a href="articles/${a.slug}.html" class="blog-card">
+        <div class="blog-card-image">
+          <img src="${a.image}" alt="${a.title}" loading="lazy" />
+          ${a.isAffiliate ? '<span class="card-badge">Shop</span>' : ""}
+          <span class="card-arrow">&rarr;</span>
+          <div class="blog-card-overlay">
+            <span class="blog-category">${a.category}</span>
+            <h2>${a.title}</h2>
+          </div>
+        </div>
+      </a>`;
+  }
+
+  function featureHTML(a) {
+    return `
+      <a href="articles/${a.slug}.html" class="blog-feature-card">
+        <div class="blog-feature-media">
+          <img src="${a.image}" alt="${a.title}" />
+        </div>
+        <div class="blog-feature-body">
+          <span class="feature-flag">Featured</span>
+          <p class="blog-category">${a.category}</p>
+          <h2>${a.title}</h2>
+          <p class="blog-description">${a.description}</p>
+          <span class="read-more">Read article</span>
+        </div>
+      </a>`;
+  }
+
+  const stripHTML = `
+    <div class="blog-strip">
+      <p class="kicker">Follow along</p>
+      <h2>Save your favourite ideas on Pinterest</h2>
+      <p>New boards and pins every week.</p>
+      <a href="${PINTEREST_URL}" class="hero-button" target="_blank" rel="noopener">Follow on Pinterest</a>
+    </div>`;
+
+  function drawFilters() {
+    if (!filtersEl) return;
+    filtersEl.innerHTML = ["All", ...categories].map((c) => `
+      <button type="button" class="filter-pill ${c === activeCategory ? "is-active" : ""}" data-category="${c}">${c}</button>
+    `).join("");
+  }
+
+  function reveal() {
+    const items = document.querySelectorAll(".blog-card, .blog-feature-card, .blog-strip");
+    if (!("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach((el) => {
+      el.classList.add("reveal");
+      observer.observe(el);
+    });
+  }
+
+  function draw() {
+    // Featured block only shows on "All"
+    const showFeature = activeCategory === "All" && articles.length > 1;
+    if (featureEl) featureEl.innerHTML = showFeature ? featureHTML(featured) : "";
+
+    const list = articles.filter((a) =>
+      (activeCategory === "All" || a.category === activeCategory) &&
+      !(showFeature && a === featured)
+    );
+
+    const cards = list.map(cardHTML);
+    // Break up the grid with a strip after the 6th card (only if there are more than 6)
+    if (cards.length > 6) cards.splice(6, 0, stripHTML);
+    grid.innerHTML = cards.join("");
+
+    reveal();
+  }
+
+  if (filtersEl) {
+    filtersEl.addEventListener("click", (e) => {
+      const pill = e.target.closest(".filter-pill");
+      if (!pill) return;
+      activeCategory = pill.dataset.category;
+      drawFilters();
+      draw();
+    });
+  }
+
+  drawFilters();
+  draw();
 }
-
 
 /* ------------------------------------------------------------
    renderRelatedArticles(currentSlug)
